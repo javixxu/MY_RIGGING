@@ -57,7 +57,6 @@ namespace UnityEngine.Animations.Rigging
             }
         }
 
-#if UNITY_EDITOR
         /// <summary>
         /// Bone described by two Transform references.
         /// </summary>
@@ -166,12 +165,12 @@ namespace UnityEngine.Animations.Rigging
                 if (transform == null)
                     continue;
 
-                if (UnityEditor.SceneVisibilityManager.instance.IsHidden(transform.gameObject, false))
-                    continue;
+                //if (UnityEditor.SceneVisibilityManager.instance.IsHidden(transform.gameObject, false))
+                //    continue;
 
-                var mask = UnityEditor.Tools.visibleLayers;
-                if ((mask & (1 << transform.gameObject.layer)) == 0)
-                    continue;
+               // var mask = UnityEditor.Tools.visibleLayers;
+               // if ((mask & (1 << transform.gameObject.layer)) == 0)
+               //     continue;
 
                 if (transform.childCount > 0)
                 {
@@ -196,6 +195,5 @@ namespace UnityEngine.Animations.Rigging
             m_Bones = bonesList.ToArray();
             m_Tips = tipsList.ToArray();
         }
-#endif // UNITY_EDITOR
     }
 }
